@@ -89,14 +89,42 @@ public class Main {
 //		bankDepartmentPersist(14, 3, session);
 //		bankDepartmentPersist(15, 3, session);
 //		bankDepartmentPersist(16, 3, session);
-//		
-		System.out.println("check");
-		System.out.println("check");
-		System.out.println("check");
+		
+//		Client client = new Client();
+//		client.setAge(25);
+//		client.setCity("Berlin");
+//		client.setEducation("full");
+//		client.setFirstName("Barni");
+//		client.setLastName("Middlefinger");
+//		client.setPassport("BF3543253");
+//		session.save(client);
+		
+		addClient(session, 50, "Kiev", "full", "Viktor", "Pokatila", "21111",4);
+		addClient(session, 22, "Kiev", "2full", "Vladimir", "Lita", "SD21111",5);
+		addClient(session, 17, "Lviv", "2full", "Kiril", "Karlovi4", "AA21111",3);
+		addClient(session, 29, "Lviv", "full", "Taras", "Mitin", "QZ21111",3);
+		addClient(session, 23, "Kiev", "full", "Abram", "Golin", "PP21111",1);
+		
+		
+//		session.get(Department.class, 1);
+//		System.out.println("check");
+//		System.out.println("check");
+//		System.out.println("check");
 		session.getTransaction().commit();
 		session.close();
 		factory.close();
 
+	}
+	public static void addClient(Session session, int clientAge, String clientCity, String clientEdukation,String clientFirstName, String clientLastName, String clientPassport, int departmentNumber){
+		Client client = new Client();
+		client.setAge(clientAge);
+		client.setCity(clientCity);
+		client.setEducation(clientEdukation);
+		client.setFirstName(clientFirstName);
+		client.setLastName(clientLastName);
+		client.setPassport(clientPassport);
+		session.save(client);
+		client.setIdDepartment(session.get(Department.class, departmentNumber));
 	}
 	public static void bankDepartmentPersist(int clientId, int departmentId, Session session){
 		Client client = session.get(Client.class, clientId);
