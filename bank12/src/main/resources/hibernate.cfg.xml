@@ -17,7 +17,7 @@
 		<!-- List of XML mapping files -->
 		<mapping class="jacket.Department" ></mapping>
 		<mapping class="jacket.Client" ></mapping>
-		<mapping class="jacket.Aplication" ></mapping>
+		<mapping class="jacket.Application" ></mapping>
 		
 
 	</session-factory>

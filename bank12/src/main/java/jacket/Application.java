@@ -9,30 +9,25 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Aplication {
+public class Application {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idAplication;
+	private int idApplication;
 	private String CreditState;
 	private String Currency;
+	private int sum;
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	private Client idClient;
 
-	public Aplication() {
-	}
-
-	public Aplication(String creditState, String currency) {
-		super();
-		CreditState = creditState;
-		Currency = currency;
+	public Application() {
 	}
 
 	public int getIdAplication() {
-		return idAplication;
+		return idApplication;
 	}
 
 	public void setIdAplication(int idAplication) {
-		this.idAplication = idAplication;
+		this.idApplication = idAplication;
 	}
 
 	public String getCreditState() {
@@ -59,10 +54,28 @@ public class Aplication {
 		this.idClient = idClient;
 	}
 
+	public int getSum() {
+		return sum;
+	}
+
+	public void setSum(int sum) {
+		this.sum = sum;
+	}
+
+	public int getIdApplication() {
+		return idApplication;
+	}
+
+	public void setIdApplication(int idApplication) {
+		this.idApplication = idApplication;
+	}
+
 	@Override
 	public String toString() {
-		return "Aplication [idAplication=" + idAplication + ", CreditState=" + CreditState + ", Currency=" + Currency
-				+ "]";
+		return "Application [idApplication=" + idApplication + ", CreditState=" + CreditState + ", Currency=" + Currency
+				+ ", sum=" + sum + "]";
 	}
+
+	
 
 }

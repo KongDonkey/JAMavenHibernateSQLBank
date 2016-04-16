@@ -24,7 +24,7 @@ public class Client {
 	private String city;
 	private int age;
 	@OneToMany(mappedBy = "idClient", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-	private List<Aplication> aplications = new ArrayList<Aplication>();
+	private List<Application> aplications = new ArrayList<Application>();
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	private Department idDepartment;
 
@@ -96,11 +96,11 @@ public class Client {
 		this.age = age;
 	}
 
-	public List<Aplication> getAplications() {
+	public List<Application> getAplications() {
 		return aplications;
 	}
 
-	public void setAplications(List<Aplication> aplications) {
+	public void setAplications(List<Application> aplications) {
 		this.aplications = aplications;
 	}
 
